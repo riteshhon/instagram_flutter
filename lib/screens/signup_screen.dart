@@ -5,16 +5,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_flutter/utils/colors.dart';
 import 'package:instagram_flutter/widgets/text_field_input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _bioController = TextEditingController();
 
   @override
   void dispose() {
@@ -22,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _usernameController.dispose();
+    _bioController.dispose();
   }
 
   @override
@@ -29,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 35.0),
+          padding: const EdgeInsets.symmetric(horizontal: 35.0),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,6 +49,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 60.0,
               ),
               const SizedBox(height: 65.0),
+              // circular widget to accept and show our selected file
+              Stack(
+                children: [
+                  const CircleAvatar(
+                    radius: 64,
+                    backgroundImage: NetworkImage(
+                        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'),
+                  ),
+                  Positioned(
+                    // ignore: sort_child_properties_last
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add_a_photo),
+                    ),
+                    bottom: -10.0,
+                    left: 80.0,
+                  )
+                ],
+              ),
+              const SizedBox(height: 20.0),
+              // text field input for username
+              TextFieldInput(
+                hintText: 'Enter Username',
+                textInputType: TextInputType.text,
+                textEditingController: _usernameController,
+              ),
+              const SizedBox(height: 25.0),
               // text field input for email
               TextFieldInput(
                 hintText: 'Enter Email Address',
@@ -60,11 +91,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 isPass: true,
               ),
               const SizedBox(height: 25.0),
+              // text field input for bio
+              TextFieldInput(
+                hintText: 'Enter Bio',
+                textInputType: TextInputType.text,
+                textEditingController: _bioController,
+              ),
+              const SizedBox(height: 25.0),
               // button login
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  child: const Text('Log In'),
+                  child: const Text('Sign Up'),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -89,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     // ignore: sort_child_properties_last
-                    child: const Text("Don't have an account?"),
+                    child: const Text("Have an account?"),
                     padding: const EdgeInsets.symmetric(
                       vertical: 8,
                     ),
@@ -99,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       // ignore: sort_child_properties_last
                       child: const Text(
-                        'Create account',
+                        'Sign In',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
