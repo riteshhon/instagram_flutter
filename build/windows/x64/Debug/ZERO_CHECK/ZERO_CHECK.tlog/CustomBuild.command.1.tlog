@@ -1,0 +1,10 @@
+^I:\INSTAGRAM_FLUTTER\BUILD\WINDOWS\CMAKEFILES\5F634EAFF02ADF91948FF0D6B0955BC4\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SI:/instagram_flutter/windows -BI:/instagram_flutter/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file I:/instagram_flutter/build/windows/instagram_flutter.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

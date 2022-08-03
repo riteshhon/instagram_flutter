@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">359532311838-m78gnu0e3uis2bb32g0clonjcv4a876u.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">359532311838</string>
+    <string name="google_api_key" translatable="false">AIzaSyC4I_ysDjCpmBJ_dpgOX6S9arVFwL3xwIk</string>
+    <string name="google_app_id" translatable="false">1:359532311838:android:804887680069eb958e050f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC4I_ysDjCpmBJ_dpgOX6S9arVFwL3xwIk</string>
+    <string name="google_storage_bucket" translatable="false">intagram-flutter.appspot.com</string>
+    <string name="project_id" translatable="false">intagram-flutter</string>
+</resources>

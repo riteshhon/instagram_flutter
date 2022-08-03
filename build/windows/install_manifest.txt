@@ -1,0 +1,11 @@
+I:/instagram_flutter/build/windows/runner/Debug/data/icudtl.dat
+I:/instagram_flutter/build/windows/runner/Debug/flutter_windows.dll
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/assets/ic_instagram_logo.svg
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/NOTICES
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+I:/instagram_flutter/build/windows/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

@@ -1,0 +1,10 @@
+^I:\INSTAGRAM_FLUTTER\BUILD\WINDOWS\CMAKEFILES\5F634EAFF02ADF91948FF0D6B0955BC4\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
