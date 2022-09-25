@@ -40,24 +40,27 @@ class MyApp extends StatelessWidget {
       //   mobileScreenLayout: MobileScreenLayout(),
       //   webScreenLayout: WebScreenLayout(),
       // ),
-      routes: {
-        // "/": (context) => const LoginScreen(),
-        "/home": (context) => SignupScreen(),
-      },
-      home: Scaffold(
-        body: WillPopScope(
-          onWillPop: () async {
-            if (Navigator.canPop(context)) {
-              //Navigator.pop(context);
-              Navigator.of(context).pop();
-            } else {
-              SystemNavigator.pop();
-            }
-            return true;
-          },
-          child: LoginScreen(),
-        ),
-      ),
+      // **************
+      // routes: {
+      //   "/": (context) => const LoginScreen(),
+      //   "/home": (context) => SignupScreen(),
+      // },
+      // home: Scaffold(
+      //   body: WillPopScope(
+      //     onWillPop: () async {
+      //       if (Navigator.canPop(context)) {
+      //         //Navigator.pop(context);
+      //         Navigator.of(context).pop();
+      //       } else {
+      //         SystemNavigator.pop();
+      //       }
+      //       return true;
+      //     },
+      //     child: LoginScreen(),
+      //   ),
+      // ),
+
+      home: LoginScreen(),
     );
   }
 }

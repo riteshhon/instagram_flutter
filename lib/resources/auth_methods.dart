@@ -54,4 +54,7 @@ class AuthMethods {
     }
     return res;
   }
+
+  // logging in user
+
 }

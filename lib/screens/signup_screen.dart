@@ -24,6 +24,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
   Uint8List? _image;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -48,6 +49,34 @@ class _SignupScreenState extends State<SignupScreen> {
     setState(() {
       _image = im;
     });
+  }
+
+  void signUpUser() async {
+    if (_emailController.text != null) {
+      _isLoading = false;
+      showSnackBar(context, 'Some values are missing');
+    } else {
+      setState(() {
+        _isLoading = true;
+      });
+
+      String res = await AuthMethods().signUpUser(
+        email: _emailController.text,
+        password: _passwordController.text,
+        username: _usernameController.text,
+        bio: _bioController.text,
+        file: _image!,
+      );
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      if (res != 'success') {
+        // ignore: use_build_context_synchronously
+        showSnackBar(context, res);
+      }
+    }
   }
 
   Future<Null> _focusNodeListener() async {
@@ -135,21 +164,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(height: 25.0),
                   // button login
                   GestureDetector(
-                    onTap: () async {
-                      String res = await AuthMethods().signUpUser(
-                        email: _emailController.text,
-                        password: _passwordController.text,
-                        username: _usernameController.text,
-                        bio: _bioController.text,
-                        file: _image!,
-                      );
-                      print(res);
-                    },
+                    onTap: signUpUser,
                     child: Container(
-                      child: const Text('Sign Up'),
                       width: double.infinity,
                       alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                      padding: const EdgeInsets.symmetric(vertical: 12.0),
                       decoration: const ShapeDecoration(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
@@ -158,9 +177,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         color: blueColor,
                       ),
+                      child: _isLoading
+                          ? const SizedBox(
+                              height: 16.0,
+                              width: 16.0,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  color: primaryColor,
+                                  strokeWidth: 2.0,
+                                ),
+                              ),
+                            )
+                          : const Text('Sign Up'),
                     ),
                   ),
-                  const SizedBox(height: 15.0),
+                  const SizedBox(height: 60.0),
                   // transitioning to signing up
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
